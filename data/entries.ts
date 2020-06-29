@@ -13,13 +13,13 @@ const rawEntries: Entry[] = [
 
 const entriesWithId: Entry[] = rawEntries.map((e) => ({
   ...e,
-  id: slug(`${e.name}:${e.kind}:${(e.tags || []).join("")}`),
+  id: slug(`${e.name}:${(e.tags || []).join("")}`),
 }));
 
-export const entriesById = entriesWithId.reduce(
-  (acc, entry) => ({ ...acc, [entry.id]: entry }),
-  {}
-);
+export const entriesById = entriesWithId.reduce((acc, entry) => {
+  if (acc[entry.id]) throw new Error(`Duplicate entry ${entry.id}`);
+  return { ...acc, [entry.id]: entry };
+}, {});
 
 export const latestEntries = entriesWithId.slice(0, 10);
 

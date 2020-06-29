@@ -4,6 +4,7 @@ import Navbar from "src/components/Navbar";
 import CenteredContainter from "src/components/CenteredContainer";
 import EntryCard from "src/components/EntryCard";
 import entries, { entriesById } from "data/entries";
+import Head from "next/head";
 
 interface Props {
   entry: Entry;
@@ -12,6 +13,10 @@ interface Props {
 const SingleEntry = ({ entry }: Props) => {
   return (
     <Fragment>
+      <Head>
+        <title>{entry.name} - Scala Tips</title>
+        <meta name="description" content={entry.description} />
+      </Head>
       <Navbar />
       <CenteredContainter narrow marginTop={[6, 8, 12]}>
         <EntryCard entry={entry} />

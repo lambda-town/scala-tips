@@ -6,7 +6,7 @@ import { Box, Text, Link as ChakraLink } from "@chakra-ui/core";
 import { Entry } from "../src/types";
 import { latestEntries } from "../data/entries";
 import EntryCard from "../src/components/EntryCard";
-import entry from "@/standard-examples/LeftToRightFunctionComposition";
+import Head from "next/head";
 
 interface Props {
   latestEntries: Entry[];
@@ -15,6 +15,15 @@ interface Props {
 const HomePage = ({ latestEntries }: Props) => {
   return (
     <Fragment>
+      <Head>
+        <title>
+          Scala programming cheatsheet - Tips, definitions and good practices
+        </title>
+        <meta
+          name="description"
+          content="Scala Tips is a curated list of tips for the Scala programming language. It includes definitions, tips and code examples"
+        />
+      </Head>
       <Navbar />
       <CenteredContainter narrow marginTop={[6, 8, 12]}>
         <Box backgroundColor="gray.200" textAlign="center" padding={[4, 8]}>

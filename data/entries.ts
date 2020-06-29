@@ -1,0 +1,26 @@
+import slug from "url-slug";
+import { Entry } from "../src/types";
+
+import LeftToRightFunctionComposition from "@/standard-examples/LeftToRightFunctionComposition";
+import ConditionalEither from "@/standard-examples/ConditionalEither";
+import EitherFilterOrElse from "@/standard-examples/EitherFilterOrElse";
+
+const rawEntries: Entry[] = [
+  LeftToRightFunctionComposition,
+  ConditionalEither,
+  EitherFilterOrElse,
+];
+
+const entriesWithId: Entry[] = rawEntries.map((e) => ({
+  ...e,
+  id: slug(`${e.name}:${e.kind}:${(e.tags || []).join("")}`),
+}));
+
+export const entriesById = entriesWithId.reduce(
+  (acc, entry) => ({ ...acc, [entry.id]: entry }),
+  {}
+);
+
+export const latestEntries = entriesWithId.slice(0, 10);
+
+export default entriesWithId;

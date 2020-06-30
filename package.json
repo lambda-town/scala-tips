@@ -12,12 +12,14 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "emotion-theming": "^10.0.27",
+    "fuse.js": "^6.4.0",
     "next": "9.4.4",
     "raw-loader": "^4.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-markdown": "^4.3.1",
     "react-syntax-highlighter": "^12.2.1",
+    "strip-indent": "^3.0.0",
     "url-slug": "^2.3.1"
   },
   "devDependencies": {

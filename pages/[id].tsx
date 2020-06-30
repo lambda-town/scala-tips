@@ -1,7 +1,7 @@
 import { Entry } from "src/types";
 import { Fragment } from "react";
 import Navbar from "src/components/Navbar";
-import CenteredContainter from "src/components/CenteredContainer";
+import CenteredContainer from "src/components/CenteredContainer";
 import EntryCard from "src/components/EntryCard";
 import entries, { entriesById } from "data/entries";
 import Head from "next/head";
@@ -18,9 +18,9 @@ const SingleEntry = ({ entry }: Props) => {
         <meta name="description" content={entry.description} />
       </Head>
       <Navbar />
-      <CenteredContainter narrow marginTop={[6, 8, 12]}>
+      <CenteredContainer narrow marginTop={[6, 8, 12]}>
         <EntryCard entry={entry} />
-      </CenteredContainter>
+      </CenteredContainer>
     </Fragment>
   );
 };

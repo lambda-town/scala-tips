@@ -3,8 +3,7 @@ import CenteredContainer from "./CenteredContainer";
 import { memo } from "react";
 import { usePolymorphicContext } from "../PolymorphicContext";
 import Link from "next/link";
-
-export const heightPx = 80;
+import SearchForm from "./SearchForm";
 
 const brand = (
   <Link href="/">
@@ -45,9 +44,11 @@ const Navbar = () => {
 
   const menu = <Box height="100%">{modeSwitch}</Box>;
 
+  const search = <SearchForm />
+
   return (
     <Box
-      h={heightPx}
+      h={[60, 80]}
       position="sticky"
       top={0}
       background="white"
@@ -62,6 +63,7 @@ const Navbar = () => {
         justifyContent="space-between"
       >
         {brand}
+        {search}
         {menu}
       </CenteredContainer>
     </Box>

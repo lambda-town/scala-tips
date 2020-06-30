@@ -34,7 +34,7 @@ const entry: EntryWithOperands = {
   with: [polymorphicUnaryFunction(user, polymorphic(boolean))],
   to: polymorphicEither(failure, user),
   description: getLines(6, 7),
-  codeSamples: [{ language: "scala", content: getLines(11, 25) }],
+  codeSamples: [{ language: "scala", content: getLines(11, 18) }],
 };
 
 export default entry;

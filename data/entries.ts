@@ -14,6 +14,8 @@ const rawEntries: Entry[] = [
 const entriesWithId: Entry[] = rawEntries.map((e) => ({
   ...e,
   id: slug(`${e.name}:${(e.tags || []).join("")}`),
+  name: e.name.trim(),
+  description: e.description?.trim()
 }));
 
 export const entriesById = entriesWithId.reduce((acc, entry) => {

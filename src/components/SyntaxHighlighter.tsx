@@ -1,4 +1,5 @@
 import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco';
+import stripIndent from 'strip-indent';
 import { LightAsync as RSH } from "react-syntax-highlighter";
 import { Box, BoxProps } from "@chakra-ui/core";
 
@@ -9,9 +10,9 @@ interface Props extends BoxProps {
 
 const SyntaxHighlighter = ({ value, language, ...props }: Props) => {
   return (
-    <Box overflow="hidden" {...props}>
+    <Box overflow="hidden" fontSize="sm" {...props}>
       <RSH language={language || "shell"} style={docco}>
-        {value}
+        {stripIndent(value)}
       </RSH>
     </Box>
   );

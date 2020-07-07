@@ -19,3 +19,7 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Disclaimer
+
+This website uses [Fathom](https://usefathom.com/), a privacy-focused analytics service.

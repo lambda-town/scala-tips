@@ -35,6 +35,7 @@ const entry: EntryWithOperands = {
   to: polymorphicEither(failure, user),
   description: getLines(6, 7),
   codeSamples: [{ language: "scala", content: getLines(11, 18) }],
+  tags: ["either", "validation", "predicate"]
 };
 
 export default entry;

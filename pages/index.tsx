@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import Link from "next/link";
 import Navbar from "../src/components/Navbar";
 import CenteredContainer from "../src/components/CenteredContainer";
 import { Box, Text, Link as ChakraLink } from "@chakra-ui/core";
@@ -9,7 +8,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
-const FilteredEntries = dynamic(() => import("../src/components/FilteredEntries"))
+const FilteredEntries = dynamic(() =>
+  import("../src/components/FilteredEntries")
+);
 
 interface Props {
   latestEntries: Entry[];
@@ -23,11 +24,7 @@ const HomePage = ({ latestEntries, indexString }: Props) => {
   const entries = query ? (
     <FilteredEntries query={query as string} indexString={indexString} />
   ) : (
-    latestEntries.map((e) => (
-      <Link key={`${e.id}:${e.kind}`} href="/[id]" as={`/${e.id}`}>
-        <EntryCard entry={e} cursor="pointer" />
-      </Link>
-    ))
+    latestEntries.map((e) => <EntryCard key={e.id} entry={e} />)
   );
 
   const hero = (

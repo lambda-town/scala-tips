@@ -4,8 +4,10 @@ import { Entry } from "../src/types";
 import LeftToRightFunctionComposition from "@/standard-examples/LeftToRightFunctionComposition";
 import ConditionalEither from "@/standard-examples/ConditionalEither";
 import EitherFilterOrElse from "@/standard-examples/EitherFilterOrElse";
+import ListOfOptionsToListOfA from "@/standard-examples/ListOfOptionsToListOfA";
 
 const rawEntries: Entry[] = [
+  ListOfOptionsToListOfA,
   LeftToRightFunctionComposition,
   ConditionalEither,
   EitherFilterOrElse,

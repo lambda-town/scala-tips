@@ -5,7 +5,7 @@ interface Props extends BoxProps {
 }
 
 const CenteredContainer = ({ narrow, ...props }: Props) => (
-  <Box paddingX={narrow ? [3, 8, 12, "200px", "430px"] : [2, 4, 6, 24, 48]} {...props} />
+  <Box paddingX={narrow ? [2, 8, 12, "200px", "430px"] : [2, 4, 6, 24, 48]} {...props} />
 );
 
 export default CenteredContainer;

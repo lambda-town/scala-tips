@@ -47,6 +47,7 @@ const entry: EntryWithOperands = {
       },
     },
   ],
+  tags: ["function"]
 };
 
 export default entry;

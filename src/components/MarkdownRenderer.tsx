@@ -5,7 +5,14 @@ import { Text } from "@chakra-ui/core";
 const renderers = {
   code: SyntaxHighlighter,
   inlineCode: (props) => (
-    <Text as="code" fontSize="lg" backgroundColor="red.50" color="primary" fontFamily="monospace" {...props}></Text>
+    <Text
+      as="code"
+      fontSize={["md", "lg"]}
+      backgroundColor="red.50"
+      color="primary"
+      fontFamily="monospace"
+      {...props}
+    ></Text>
   ),
 };
 

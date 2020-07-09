@@ -3,6 +3,7 @@ import { Box, Text, SimpleGrid, BoxProps } from "@chakra-ui/core";
 import { usePolymorphicContext } from "../PolymorphicContext";
 import MarkdownRenderer from "./MarkdownRenderer";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const SyntaxHighlighter = dynamic(() => import("./SyntaxHighlighter"));
 
@@ -13,8 +14,10 @@ interface Props extends BoxProps {
 const EntryCard = ({ entry, ...props }: Props) => {
   const { renderPolymorphic } = usePolymorphicContext();
 
+  const contentPadding = [2, 4];
+
   const title = (
-    <Box padding={4} borderBottomWidth={1} borderBottomColor="gray.200">
+    <Box padding={contentPadding} borderBottomWidth={1} borderBottomColor="gray.200">
       <Text fontWeight="semibold">{entry.name}</Text>
     </Box>
   );
@@ -31,8 +34,8 @@ const EntryCard = ({ entry, ...props }: Props) => {
         justifyContent="center"
         textAlign="center"
         backgroundColor="red.50"
-        paddingX={4}
-        paddingY={6}
+        paddingX={contentPadding}
+        paddingY={[3, 6]}
       >
         <Box>
           <Text fontSize="sm">From</Text>
@@ -40,7 +43,7 @@ const EntryCard = ({ entry, ...props }: Props) => {
             {renderPolymorphic(entry.from)}
           </Text>
         </Box>
-        {withOperandsLength ? (
+        {entry.with?.length ? (
           <Box>
             <Text fontSize="sm">With</Text>
             {entry.with.map((o) => (
@@ -65,13 +68,13 @@ const EntryCard = ({ entry, ...props }: Props) => {
   })();
 
   const description = entry.description ? (
-    <Text paddingX={4} pt={6}>
+    <Text paddingX={contentPadding} pt={6} fontSize={["sm", "md"]}>
       <MarkdownRenderer source={entry.description} />
     </Text>
   ) : null;
 
   const codeSamples = entry.codeSamples?.length ? (
-    <Box padding={4}>
+    <Box padding={contentPadding}>
       <Text fontWeight="semibold" color="gray.500">
         Code samples
       </Text>
@@ -97,7 +100,11 @@ const EntryCard = ({ entry, ...props }: Props) => {
       boxShadow="md"
       {...props}
     >
-      {title}
+      <Link href="/[id]" as={`/${entry.id}`}>
+        <Text as="a" cursor="pointer" textDecor="underline">
+          {title}
+        </Text>
+      </Link>
       {operands}
       {description}
       {codeSamples}

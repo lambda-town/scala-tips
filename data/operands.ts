@@ -18,6 +18,22 @@ export const polymorphicEither = (
   isPolymorphic: true,
 });
 
+export const polymorphicList = (
+  type: Polymorphic<Operand>
+): Polymorphic<Operand> => ({
+  abstract: `List[${type.abstract}]`,
+  concrete: `List[${type.concrete}]`,
+  isPolymorphic: true,
+});
+
+export const polymorphicOption = (
+  type: Polymorphic<Operand>
+): Polymorphic<Operand> => ({
+  abstract: `Option[${type.abstract}]`,
+  concrete: `Option[${type.concrete}]`,
+  isPolymorphic: true,
+});
+
 export const polymorphic = <T>(data: T): Polymorphic<T> => ({
   abstract: data,
   concrete: data,

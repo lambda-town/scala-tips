@@ -11,7 +11,8 @@ const brand = (
       cursor="pointer"
       as="h2"
       fontWeight="semibold"
-      fontSize="lg"
+      fontSize={["xs", "lg"]}
+      textAlign={["center", "left"]}
       color="primary"
     >
       Scala Tips
@@ -27,7 +28,7 @@ const Navbar = () => {
       height="100%"
       borderX="solid 1px"
       paddingX={[2, 4]}
-      display="flex"
+      display={["none", "flex"]}
       alignItems="center"
       borderColor="gray.200"
       cursor="pointer"
